@@ -1,0 +1,18 @@
+@import "normalize.css";
+@import "reset-css";
+@import "../../fonts/fonts.css";
+
+:root {
+  --color-white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-white);
+  font-family: Nunito;
+  font-weight: 400;
+  font-size: 16px;
+}

@@ -1,0 +1,35 @@
+.container {
+  max-width: 1440px;
+  margin: 0 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.list {
+    padding: 0px 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.iconNav {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.activ {
+  background: #ffab08;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
