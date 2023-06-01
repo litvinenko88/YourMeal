@@ -10,6 +10,7 @@ class App {
     Nav.render();
     FoodMenu.render();
   }
+
 }
 
 export default new App();

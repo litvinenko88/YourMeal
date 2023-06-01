@@ -1,4 +1,5 @@
 import style from "./Menu.module.css";
+import { ROOT_MENU } from "../../constants/constants";
 import { catalogFood } from "../../util/CatalogFood";
 import {
   BURGER,
@@ -11,17 +12,35 @@ import {
   DESSERT,
   SAUCES,
 } from "../../constants/api";
-import App from "../App/App";
-
-import FoodMenu from "../FoodMenu";
 
 class Menu {
   async render() {
     let htmlContent = "";
-    let data = await catalogFood.getFood(BURGER);
+    const data =  await catalogFood.getFood(BURGER);
 
-    data.forEach(({ img, price, title, weight}) => {
-      console.log(data);
+    data.forEach(({img, price, title, weight}) => {
+
+      htmlContent += `
+        <div class="${style.card}">
+          <img class="${style.img}" src="${img}" alt="Изображения">
+          <p class="${style.price}">${price}</p>
+          <h3 class="${style.title}">${title}</h3>
+          <p class="${style.weight}">${weight}</p>
+          <button class="${style.btn}">Добавить</button>
+        </div>
+      `;
+
+      let html = `
+        <div class="${style.container}">
+          <h2>Бургеры</h2>
+
+          <div class="${style.wrapper}">
+            ${htmlContent}
+          </div>
+        </div>
+      `;
+
+      ROOT_MENU.innerHTML = html;
     });
   }
 }
