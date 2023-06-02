@@ -1,6 +1,8 @@
 .container {
   max-width: 1440px;
-  margin: 0 100px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
 }
@@ -14,6 +16,9 @@
 
 .list {
     padding: 0px 20px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50px;
 }
 
 .link {

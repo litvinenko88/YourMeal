@@ -4,8 +4,8 @@ import { ROOT_FOOD_MENU } from "../../constants/constants";
 
 class FoodMenu {
   async render() {
-    Basket.render();
     Menu.render();
+    Basket.render();
   }
 }
 

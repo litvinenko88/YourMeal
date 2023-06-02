@@ -16,23 +16,22 @@ import {
 class Menu {
   async render() {
     let htmlContent = "";
-    const data =  await catalogFood.getFood(BURGER);
+    const data = await catalogFood.getFood(BURGER);
 
-    data.forEach(({img, price, title, weight}) => {
-
+    data.forEach(({ img, price, title, weight }) => {
       htmlContent += `
         <div class="${style.card}">
           <img class="${style.img}" src="${img}" alt="Изображения">
-          <p class="${style.price}">${price}</p>
+          <p class="${style.price}">${price}₽</p>
           <h3 class="${style.title}">${title}</h3>
-          <p class="${style.weight}">${weight}</p>
+          <p class="${style.weight}">${weight}г</p>
           <button class="${style.btn}">Добавить</button>
         </div>
       `;
 
       let html = `
         <div class="${style.container}">
-          <h2>Бургеры</h2>
+          <h2 class="${style.heading}">Бургеры</h2>
 
           <div class="${style.wrapper}">
             ${htmlContent}
@@ -41,8 +40,12 @@ class Menu {
       `;
 
       ROOT_MENU.innerHTML = html;
+
+      
     });
   }
 }
 
 export default new Menu();
+
+
