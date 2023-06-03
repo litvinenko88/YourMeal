@@ -1,12 +1,10 @@
-import Menu from "../Menu";
-import Basket from "../Basket";
-import { ROOT_FOOD_MENU } from "../../constants/constants";
+import style from "./FoodMenu.module.css";
 
 class FoodMenu {
-  async render() {
-    Menu.render();
-    Basket.render();
+  constructor() {
+    this.menu = [];
+    this.basket = {};
   }
-}
 
-export default new FoodMenu();
+  
+}
