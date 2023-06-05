@@ -1,29 +1,29 @@
 .container {
-  max-width: 1440px;
-  margin: 0 auto;
-  margin-bottom: 60px;
-  padding: 0 30px;
+}
+
+.wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.wrapper {
-  list-style: none;
+.list {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  background: #e8e8e8;
+  padding: 10px 15px;
+  border-radius: 50px;
 }
 
-.list {
-    padding: 0px 20px;
-    cursor: pointer;
-    background: #fff;
-    border-radius: 50px;
+.icon {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
 }
 
 .link {
-  text-decoration: none;
   color: #000;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .iconNav {
@@ -32,9 +32,11 @@
   margin-right: 5px;
 }
 
-.activ {
+.activ:last-child(1) {
   background: #ffab08;
   border-radius: 50px;
   display: flex;
   align-items: center;
 }
+
+

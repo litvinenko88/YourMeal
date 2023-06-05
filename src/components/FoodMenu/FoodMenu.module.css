@@ -1,1 +1,18 @@
+.wrapper{
+   display: grid;
+   grid-template-columns: ;
+   max-width: 1440px;
+   margin: 0 auto;
+}
 
+.nav{
+   background: red;
+}
+
+.menu{
+   background: #558;
+}
+
+.basket{
+   background: #896;
+}

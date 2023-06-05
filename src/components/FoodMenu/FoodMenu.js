@@ -1,23 +1,21 @@
-
 import style from "./FoodMenu.module.css";
+import Nav from "../Nav/Nav";
+import { ROOT_FOOD_MENU } from "../../constants/constants";
 
 class FoodMenu {
   constructor() {
-    this.nav = [];
-    this.menu = []
-    this.basket = {}
+    this.nav = new Nav();
   }
 
-  addMenuItem(menuItem) {
-    this.navMenuList.push(menuItem);
-  }
-  //Возвращает список меню 
-  getMenuList() {
-    let d = this.menuList;
-    console.log(d);
+  render() {
+    let html = `
+    <div class="${style.wrapper}">
+       ${this.nav.menuCategories()}
+    </div>
+   `;
+
+    ROOT_FOOD_MENU.innerHTML = html;
   }
 }
 
-export default FoodMenu;
-
-
+export default new FoodMenu();
