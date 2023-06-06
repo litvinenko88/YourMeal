@@ -1,4 +1,4 @@
-import FoodMenu from "../FoodMenu";
+import { ROOT_NAV } from "../../constants/constants";
 import style from "./Nav.module.css";
 
 import icon1 from "../../icon/icon-1.png";
@@ -38,14 +38,13 @@ class Nav {
     ];
   }
 
-  menuCategories() {
-    let html = "";
-    let htmlContent = "";
+  render() {
+    let navHTML = "";
 
     this.categories.forEach((list, icon) => {
       const icons = this.icons[icon];
 
-      htmlContent += `
+      navHTML += `
       <li class="${style.container}">
          <div class="${style.list}">
             <img class="${style.icon}" src="${icons}">
@@ -53,13 +52,13 @@ class Nav {
          </div>
       </li>
       `;
-
-      html = `
-         <ul class="${style.wrapper}">
-            ${htmlContent}
-         </ul>
-      `;
     });
+
+    let html = `
+       <ul class="${style.wrapper}">
+          ${navHTML}
+       </ul>
+    `;
 
     return html;
   }

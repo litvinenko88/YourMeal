@@ -114,3 +114,38 @@ class Basket {
 
 const foodMenu = new FoodMenu();
 foodMenu.display();
+
+
+Можно упаковать всю эту логику в класс Menu. Например, так:
+
+javascript
+class Menu {
+  constructor(menuContainerId) {
+    this.menuContainer = document.getElementById(menuContainerId);
+  }
+
+  async render(promise) {
+    try {
+      const menuData = await catalogFood.getFood(promise);
+      let menuHTML = '';
+      menuData.forEach((element) => {
+        menuHTML += `<img src="${element.img}">`;
+      });
+      this.menuContainer.innerHTML = menuHTML;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+// Пример использования:
+const menu = new Menu('menu-container');
+menu.render().then(() => {
+  console.log('Меню успешно отрисовано');
+});
+
+В конструкторе класса мы получаем ссылку на элемент контейнера 
+меню по его идентификатору. В методе render мы сначала вызываем 
+метод getFood для получения данных, затем формируем HTML-код для 
+меню и выводим его внутрь контейнера. В случае возникновения ошибки 
+мы ловим ее с помощью конструкции try...catch.
