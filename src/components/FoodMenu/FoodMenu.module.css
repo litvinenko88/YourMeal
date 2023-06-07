@@ -1,18 +1,18 @@
 .wrapper{
    display: grid;
-   grid-template-columns: ;
+   grid-template-columns: repeat(12, 1fr);
    max-width: 1440px;
    margin: 0 auto;
 }
 
 .nav{
-   background: red;
+   grid-column: 1 / 13;
 }
 
 .menu{
-   background: #558;
+   grid-column: 5 / 13;
 }
 
 .basket{
-   background: #896;
+   grid-column: 1 / 4;
 }

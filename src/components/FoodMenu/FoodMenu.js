@@ -1,6 +1,7 @@
 import style from "./FoodMenu.module.css";
 import Nav from "../Nav";
 import Menu from "../Menu";
+import Basket from "../Basket";
 import { ROOT_FOOD_MENU } from "../../constants/constants";
 import axios, { Axios } from "axios";
 import { BURGER } from "../../constants/api";
@@ -9,6 +10,7 @@ class FoodMenu {
   constructor() {
     this.nav = new Nav();
     this.menu = new Menu();
+    this.basket = new Basket();
   }
 
   async render() {
@@ -16,9 +18,9 @@ class FoodMenu {
 
     let html = `
     <div class="${style.wrapper}">
-    ${this.nav.render()}
-    ${await this.menu.render(promise)}
-    
+      <div class="${style.nav}">${this.nav.render()}</div>
+      <div class="${style.basket}">${this.basket.render()}</div>
+      <div class="${style.menu}">${await this.menu.getPromise(promise)}</div>
     </div>
 
    `;

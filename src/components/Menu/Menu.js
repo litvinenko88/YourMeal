@@ -2,19 +2,26 @@ import style from "./Menu.module.css";
 import { catalogFood } from "../../util/CatalogFood";
 
 class Menu {
-  constructor() {}
+  constructor() {
+    this.menu = [];
+  }
 
-  async render(promise) {
-    let menuHTML = "";
+  async getPromise(promise) {
     let menuData = await catalogFood.getFood(promise);
+    this.menu = menuData;
+    return this.render();
+  }
 
-    menuData.forEach(({ img, price, title, weight }) => {
+  async render() {
+    let menuHTML = "";
+
+    this.menu.forEach(({ img, price, title, weight }) => {
       menuHTML += `
          <div class="${style.card}">
             <img class="${style.img}" src="${img}">
             <p class="${style.price}">${price}₽</p>
             <h3 class="${style.title}">${title}</h3>
-            <p class="${style.weight}">${weight}</p>
+            <p class="${style.weight}">${weight}г</p>
             <button class="${style.button}">Добавить</button>
          </div>
       `;
