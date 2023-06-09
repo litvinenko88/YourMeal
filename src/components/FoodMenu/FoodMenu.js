@@ -3,7 +3,6 @@ import Nav from "../Nav";
 import Menu from "../Menu";
 import Basket from "../Basket";
 import { ROOT_FOOD_MENU } from "../../constants/constants";
-import axios, { Axios } from "axios";
 import { BURGER } from "../../constants/api";
 
 class FoodMenu {
@@ -14,13 +13,11 @@ class FoodMenu {
   }
 
   async render() {
-    let promise = BURGER;
-
     let html = `
     <div class="${style.wrapper}">
       <div class="${style.nav}">${this.nav.render()}</div>
       <div class="${style.basket}">${this.basket.render()}</div>
-      <div class="${style.menu}">${await this.menu.getPromise(promise)}</div>
+      <div class="${style.menu}">${await this.menu.getPromise(this.nav.setPromise())}</div>
     </div>
 
    `;

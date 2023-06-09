@@ -149,3 +149,111 @@ menu.render().then(() => {
 метод getFood для получения данных, затем формируем HTML-код для 
 меню и выводим его внутрь контейнера. В случае возникновения ошибки 
 мы ловим ее с помощью конструкции try...catch.
+
+
+
+
+class Nav {
+  constructor() {
+    this.categories = [
+      "Бургеры",
+      "Закуски",
+      "Хот-доги",
+      "Комбо",
+      "Шаурма",
+      "Пицца",
+      "Вок",
+      "Десерты",
+      "Соусы",
+    ];
+
+    this.icons = [
+      icon1,
+      icon2,
+      icon3,
+      icon4,
+      icon5,
+      icon6,
+      icon7,
+      icon8,
+      icon9,
+    ];
+
+    this.navButton = [
+      "BURGER",
+      "SNACKS",
+      "HOT_DOG",
+      "COMBO",
+      "SHAWARMA",
+      "PIZZA",
+      "WOK",
+      "DESSERT",
+      "SAUCES",
+    ];
+
+    this.activeClass = "active";
+
+    this.navContainer = document.querySelector(.${style.wrapper});
+    this.navItems = this.navContainer.querySelectorAll(.${style.container});
+
+    this.navItems.forEach((item) => {
+      item.addEventListener("click", this.handleClick.bind(this));
+    });
+  }
+
+  handleClick(event) {
+    const clickedItem = event.currentTarget;
+
+    this.navItems.forEach((item) => item.classList.remove(this.activeClass));
+    clickedItem.classList.add(this.activeClass);
+
+    const value = clickedItem.getAttribute("data-value");
+    this.setPromise(value);
+  }
+
+  setPromise(value) {
+    console.log(Selected category: ${value});
+  }
+
+  render() {
+    let navHTML = "";
+
+    this.categories.forEach((list, i) => {
+      const icons = this.icons[i];
+      const navButton = this.navButton[i];
+
+      navHTML += 
+        <li class="${style.container}" data-value="${navButton}">
+          <div class="${style.list}">
+            <img class="${style.icon}" src="${icons}">
+            <h3 class="${style.link}">${list}</h3>
+          </div>
+        </li>
+      ;
+    });
+
+    const html = 
+      <ul class="${style.wrapper}">
+        ${navHTML}
+      </ul>
+    ;
+
+    return html;
+  }
+}
+
+export default Nav;
+
+В конструкторе класса Nav я добавил код для получения ссылок 
+на элементы навигации (this.navContainer и this.navItems) и 
+добавления обработчика событий на каждый элемент с помощью метода 
+forEach и метода bind для передачи контекста this в обработчик.
+Метод handleClick получает текущий кликнутый элемент (clickedItem) и 
+добавляет класс active для него, а также удаляет этот класс у всех 
+остальных элементов навигации. Затем метод получает значение атрибута 
+data-value и передает его в метод setPromise класса Nav.
+Метод setPromise выводит значение выбранной категории в консоль. Можно 
+добавить здесь логику, связанную с обновлением списка товаров на странице.
+Метод render можно оставить без изменений.
+
+

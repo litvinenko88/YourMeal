@@ -1,4 +1,3 @@
-import { ROOT_NAV } from "../../constants/constants";
 import style from "./Nav.module.css";
 
 import icon1 from "../../icon/icon-1.png";
@@ -10,6 +9,18 @@ import icon6 from "../../icon/icon-6.png";
 import icon7 from "../../icon/icon-7.png";
 import icon8 from "../../icon/icon-8.png";
 import icon9 from "../../icon/icon-9.png";
+
+import {
+  BURGER,
+  SNACKS,
+  HOT_DOG,
+  COMBO,
+  SHAWARMA,
+  PIZZA,
+  WOK,
+  DESSERT,
+  SAUCES,
+} from "../../constants/api";
 
 class Nav {
   constructor() {
@@ -36,16 +47,37 @@ class Nav {
       icon8,
       icon9,
     ];
+
+    this.navButton = [
+      BURGER,
+      SNACKS,
+      HOT_DOG,
+      COMBO,
+      SHAWARMA,
+      PIZZA,
+      WOK,
+      DESSERT,
+      SAUCES,
+    ];
+
+    this.activButton = BURGER;
+  }
+
+  setPromise(promise) {
+    // обновляем активную кнопку навигации и возвращаем ее значение
+    this.activButton = promise || this.activButton;
+    return this.activButton;
   }
 
   render() {
     let navHTML = "";
 
-    this.categories.forEach((list, icon) => {
-      const icons = this.icons[icon];
+    this.categories.forEach((list, i) => {
+      const icons = this.icons[i];
+      const navButton = this.navButton[i];
 
       navHTML += `
-      <li class="${style.container}">
+      <li class="${style.container}" data-value="${navButton}">
          <div class="${style.list}">
             <img class="${style.icon}" src="${icons}">
             <h3 class="${style.link}">${list}</h3>
@@ -59,6 +91,7 @@ class Nav {
           ${navHTML}
        </ul>
     `;
+
 
     return html;
   }
