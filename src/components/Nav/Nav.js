@@ -92,7 +92,6 @@ class Nav {
        </ul>
     `;
 
-
     return html;
   }
 }

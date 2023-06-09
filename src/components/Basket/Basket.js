@@ -57,6 +57,7 @@ class Basket {
          ${basketHTML}
       </div>
     `;
+
     return html;
   }
 }
